@@ -102,3 +102,21 @@ p {
 .leaflet-popup-content-wrapper {
     text-align: center;
 }
+
+.leaflet-popup-pane, .leaflet-control {
+    cursor: auto;
+    text-align: justify;
+}
+
+.leaflet-control-layers-toggle {
+    background-image: url("/assets/layers.png");
+    height: 36px;
+    width: 36px;
+}
+
+.leaflet-control-layers-selector {
+    margin-top: 2px;
+    position: relative;
+    top: 1px;
+    margin-right: 8px;
+}

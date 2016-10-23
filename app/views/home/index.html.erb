@@ -28,7 +28,7 @@
       <% @dispositivos.each do |dispositivo| %>
         <% if dispositivo.latitude and dispositivo.longitude %>
           markers["<%= dispositivo.slug %>"] = L.marker([<%= dispositivo.latitude %>, <%= dispositivo.longitude %>])
-          markers["<%= dispositivo.slug %>"].bindPopup('<b><%= link_to dispositivo.nome, dispositivo_path(dispositivo) %> (<%= "#{dispositivo.tipo} - #{dispositivo.subtipo}" %>)</b>');
+          markers["<%= dispositivo.slug %>"].bindPopup('<b><%= link_to dispositivo.nome, dispositivo_path(dispositivo) %><br/>(<%= "#{dispositivo.tipo} - #{dispositivo.subtipo}" %>)</b>');
           tipos["<%= dispositivo.tipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
           subtipos["<%= dispositivo.subtipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
         <% end %>
@@ -50,7 +50,5 @@
        layerSubTipoControl.addOverlay(subtipos["<%= subtipo[0] %>"], "<%= subtipo[0] %>");
      <% end %>
    <% end %>
-
-
   });
 </script>

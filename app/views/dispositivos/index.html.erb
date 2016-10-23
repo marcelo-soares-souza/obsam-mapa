@@ -16,6 +16,10 @@
       <thead>
         <tr>
           <th>Nome</th>
+          <th>Cidade</th>
+          <th>UF</th>
+          <th>Política Pública</th>
+          <th>Tipo</th>
           <% if user_signed_in? %> <th colspan="3"></th> <% end %>
         </tr>
       </thead>
@@ -23,12 +27,15 @@
       <tbody>
         <% @dispositivos.each do |dispositivo| %>
         <tr>
-          <td><%= link_to dispositivo.nome, dispositivo_path(dispositivo) %></td>
+          <td><%= link_to truncate(dispositivo.nome, length: 50), dispositivo_path(dispositivo) %></td>
+          <td><%= dispositivo.cidade %></td>
+          <td><%= dispositivo.uf %></td>
+          <td><%= dispositivo.politica_publica %></td>
+          <td><%= dispositivo.tipo %></td>
 
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? %>
-                <%= link_to t(:show), dispositivo, :class => 'btn btn-info btn-sm' %>
                 <%= link_to t(:edit), edit_dispositivo_path(dispositivo), :class => 'btn btn-warning btn-sm' %>
                 <%= link_to t(:destroy), dispositivo, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-danger btn-sm' %>
               <% end %>
