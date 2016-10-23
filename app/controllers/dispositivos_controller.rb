@@ -73,18 +73,4 @@ class DispositivosController < ApplicationController
     def dispositivo_params
       params.require(:dispositivo).permit(:nome, :logradouro, :cidade, :uf, :cep, :telefone, :email, :politica_publica, :tipo_atendimento, :dias_atendimento, :horario_atendimento, :clientela, :area_abrangencia, :primeiro_atendimento, :documentacao_atendimento, :pagamento, :descricao, :tipo, :subtipo, :slug, :latitude, :longitude, :user_id)
     end
-
-    def load_tipos_subtipos
-      @tipos = { "CAPS" => "CAPS", 
-                 "Unidade de Acolhimento" => "Unidade de Acolhimento", 
-                 "Ambulatório AD" => "Ambulatório AD",
-                 "Comunidade Terapêutica" => "Comunidade Terapêutica",
-                 "Outro" => "Outro" }
-
-      @subtipos = { "CAPS AD" => "CAPS AD",
-                    "CAPS Transtorno" => "CAPS Transtorno",
-                    "CAPS AD e CAPSi" => "CAPS AD e CAPSi",
-                    "CAPSi" => "CAPSi",
-                    "Outro" => "Outro" }
-    end
 end

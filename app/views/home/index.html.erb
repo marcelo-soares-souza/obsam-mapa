@@ -1,1 +1,56 @@
-<%= map(:center  => { :latlng => [-15.77835833463309, -47.88219451904297], :zoom => 10}) %>    
+<div id="map"></div>
+
+<!-- [-15.77835833463309, -47.88219451904297] -->
+
+<script>
+  $( document ).ready(function() {
+
+    var map = L.map('map').setView([-15.77835833463309, -47.88219451904297], 10);
+    var markers = new Array();
+    var tipos = new Array();
+    var subtipos = new Array();
+
+    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'OBSAM - OpenStreetMap', maxZoom: 18,}).addTo(map);
+
+    <% if @tipos %>
+      <% @tipos.each do |tipo| %>
+        tipos["<%= tipo[0] %>"] = L.layerGroup();
+      <% end %>
+    <% end %>
+
+    <% if @subtipos %>
+      <% @subtipos.each do |subtipo| %>
+        subtipos["<%= subtipo[0] %>"] = L.layerGroup();
+      <% end %>
+    <% end %>
+
+    <% if @dispositivos %>
+      <% @dispositivos.each do |dispositivo| %>
+        <% if dispositivo.latitude and dispositivo.longitude %>
+          markers["<%= dispositivo.slug %>"] = L.marker([<%= dispositivo.latitude %>, <%= dispositivo.longitude %>])
+          markers["<%= dispositivo.slug %>"].bindPopup('<b><%= link_to dispositivo.nome, dispositivo_path(dispositivo) %> (<%= "#{dispositivo.tipo} - #{dispositivo.subtipo}" %>)</b>');
+          tipos["<%= dispositivo.tipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
+          subtipos["<%= dispositivo.subtipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+   layerTipoControl = L.control.layers().addTo(map);
+   layerSubTipoControl = L.control.layers().addTo(map);
+
+   <% if @tipos %>
+     <% @tipos.each do |tipo| %>
+       layerTipoControl.addOverlay(tipos["<%= tipo[0] %>"], "<%= tipo[0] %>");
+     <% end %>
+   <% end %>
+
+   <% if @subtipos %>
+     <% @subtipos.each do |subtipo| %>
+       layerSubTipoControl.addOverlay(subtipos["<%= subtipo[0] %>"], "<%= subtipo[0] %>");
+     <% end %>
+   <% end %>
+
+
+  });
+</script>
