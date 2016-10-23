@@ -7,7 +7,11 @@ class DispositivosController < ApplicationController
   # GET /dispositivos
   # GET /dispositivos.json
   def index
-    @dispositivos = Dispositivo.all
+    if params[:search]
+      @dispositivos = Dispositivo.search(params[:search]).order("nome ASC")
+    else
+      @dispositivos = Dispositivo.all.order('nome ASC')
+    end
   end
 
   # GET /dispositivos/1

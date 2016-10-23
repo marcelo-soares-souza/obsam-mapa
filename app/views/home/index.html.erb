@@ -1,7 +1,4 @@
 <div id="map"></div>
-
-<!-- [-15.77835833463309, -47.88219451904297] -->
-
 <script>
   $( document ).ready(function() {
 
@@ -10,7 +7,7 @@
     var tipos = new Array();
     var subtipos = new Array();
 
-    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'OBSAM - OpenStreetMap', maxZoom: 18,}).addTo(map);
+    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Mapas OBSAM - Leaflet - OpenStreetMap', maxZoom: 18,}).addTo(map);
 
     <% if @tipos %>
       <% @tipos.each do |tipo| %>

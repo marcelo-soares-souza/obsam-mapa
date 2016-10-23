@@ -11,7 +11,17 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active"><br/>
+  <div class="tab-pane active">
+  <br/>
+    <div class="search-box">
+      <%= form_tag(dispositivos_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Buscar", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
+
+    <br/>
+
     <table class="table table-striped">
       <thead>
         <tr>

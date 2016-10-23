@@ -14,6 +14,10 @@ class Dispositivo < ApplicationRecord
   end
 
   def localization
-    self.logradouro + ", " + self.cidade + ", " + self.uf + ", " + self.cep
+    self.cidade + ", " + self.uf + ", " + self.cep
+  end
+
+  def self.search(search)
+    where("nome ILIKE ?", "%#{search}%") 
   end
 end

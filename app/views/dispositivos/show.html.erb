@@ -78,6 +78,18 @@
       <dd class="col-sm-9"><%= @dispositivo.user.fullname %>&nbsp;</dd>
     </dl>
 
+    <% if @dispositivo.latitude and @dispositivo.longitude %>
+      <div id="map" style="width:800px;"></div>
+
+      <script>
+        $( document ).ready(function() {
+          var map = L.map('map').setView([-15.77835833463309, -47.88219451904297], 10);
+          L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Mapas OBSAM - Leaflet - OpenStreetMap', maxZoom: 18,}).addTo(map);
+          L.marker([<%= @dispositivo.latitude %>, <%= @dispositivo.longitude %>]).addTo(map);
+        });
+      </script>
+    <% end %>
+
     <hr/>
     <% if user_signed_in? %>
       <% if current_user.admin? or @dispositivo.user.id == current_user.id %>
