@@ -13,9 +13,171 @@
   <% end %>
 
   <div class="form-group row">
-    <%= f.label "Nome", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <%= f.label :nome, "Nome", class: "col-sm-2 col-form-label col-form-label-lg" %>
     <div class="col-sm-10">
       <%= f.text_field :nome, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :logradouro, "Logradouro", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :logradouro, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :cidade, "Cidade", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :cidade, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :uf, "UF", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :uf, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :cep, "CEP", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :cep, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :telefone, "Telefones", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :telefone, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :email, "E-Mail", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :politica_publica, "Política Pública", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :politica_publica, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :tipo_atendimento, "Tipo de Atendimento", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :tipo_atendimento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :dias_atendimento, "Dias Atendimento", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :dias_atendimento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :horario_atendimento, "Horário de Atendimento", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :horario_atendimento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :clientela, "Clientela", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :clientela, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :area_abrangencia, "Área Abragência", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :area_abrangencia, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :primeiro_atendimento, "Atendimento", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :primeiro_atendimento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :documentacao_atendimento, "Documentação", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :documentacao_atendimento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :pagamento, "Pagamento", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pagamento, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :descricao, "Descrição", class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :descricao, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :tipo, 'Tipo', class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.collection_select(:tipo, @tipos, :first, :last, {}, { class: "form-control" } ) %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group row">
+    <%= f.label :subtipo, 'Sub-Tipo', class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.collection_select(:subtipo, @subtipos, :first, :last, {}, { class: "form-control" } ) %>
     </div>
   </div>
 
