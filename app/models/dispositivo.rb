@@ -18,6 +18,6 @@ class Dispositivo < ApplicationRecord
   end
 
   def self.search(search)
-    where("nome ILIKE ?", "%#{search}%") 
+    where("nome || cidade ILIKE ?", "%#{search}%") 
   end
 end

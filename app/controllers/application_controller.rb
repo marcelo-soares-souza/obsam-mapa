@@ -44,8 +44,7 @@ class ApplicationController < ActionController::Base
     @tipos = { "CAPS" => "CAPS", 
                "Unidade de Acolhimento" => "Unidade de Acolhimento", 
                "Ambulatório AD" => "Ambulatório AD",
-               "Comunidade Terapêutica" => "Comunidade Terapêutica",
-               "Outro" => "Outro" }
+               "Comunidade Terapêutica" => "Comunidade Terapêutica" }
 
     @subtipos = { "CAPS AD" => "CAPS AD",
                   "CAPS Transtorno" => "CAPS Transtorno",
