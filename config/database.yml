@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: obsam_mapa
+  password: obsam_mapa
+  encoding: utf8
+  pool: 5
+
+development:
+  <<: *default
+  database: obsam_mapa_development
+
+test:
+  <<: *default
+  database: obsam_mapa_test
+
+production:
+  <<: *default
+  database: obsam_mapa_production

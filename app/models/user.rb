@@ -1,0 +1,11 @@
+class User < ApplicationRecord
+  has_many :images
+
+  extend FriendlyId
+  friendly_id :fullname, use: :slugged
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  validates :fullname, :presence => true
+end
