@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019164320) do
+ActiveRecord::Schema.define(version: 20161023131319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dispositivos", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "logradouro"
+    t.string   "cidade"
+    t.string   "uf"
+    t.string   "cep"
+    t.string   "telefone"
+    t.string   "email"
+    t.string   "politica_publica"
+    t.string   "tipo_atendimento"
+    t.string   "dias_atendimento"
+    t.string   "horario_atendimento"
+    t.string   "clientela"
+    t.string   "area_abrangencia"
+    t.string   "primeiro_atendimento"
+    t.string   "documentacao_atendimento"
+    t.string   "pagamento"
+    t.string   "descricao"
+    t.string   "tipo"
+    t.string   "subtipo"
+    t.string   "slug"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["slug"], name: "index_dispositivos_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_dispositivos_on_user_id", using: :btree
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -87,5 +117,6 @@ ActiveRecord::Schema.define(version: 20161019164320) do
     t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
 
+  add_foreign_key "dispositivos", "users"
   add_foreign_key "images", "users"
 end

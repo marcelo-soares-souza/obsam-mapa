@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dispositivos
   resources :images
   # Users Routes
   devise_for :users

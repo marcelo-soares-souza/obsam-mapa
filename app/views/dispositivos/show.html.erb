@@ -1,0 +1,40 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to t(:all), dispositivos_path, :class => "nav-link" %>
+  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to t(:new), new_dispositivo_path, :class => "nav-link" %>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to "#{t(:details)} #{@dispositivo.nome}", dispositivo_path(@dispositivo), :class => "nav-link active" %>
+  </li>
+</ul>
+
+<br/>
+
+<div class="tab-content">
+  <div class="tab-pane active">
+    <%= dispositivo_tag @dispositivo.file.url(:medium) %>
+    <br/><br/>
+    <dl class="row">
+      <dt class="col-sm-3"><strong>Nome:</strong></dt>
+      <dd class="col-sm-9"><%= @dispositivo.nome %>&nbsp;</dd>
+
+      <dt class="col-sm-3"><strong>Responsável:</strong></dt>
+      <dd class="col-sm-9"><%= @dispositivo.user.fullname %>&nbsp;</dd>
+    </dl>
+
+    <hr/>
+    <% if user_signed_in? %>
+      <% if current_user.admin? or @dispositivo.user.id == current_user.id %>
+        <div class="form-actions">
+          <%= link_to t(:back), dispositivos_path, :class => 'btn btn-success'  %>
+          <%= link_to t(:edit), edit_dispositivo_path(@dispositivo), :class => 'btn btn-warning' %>
+          <%= link_to t(:destroy), dispositivo_path(@dispositivo), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm")) }, :class => 'btn btn-danger' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
