@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require leaflet
  */
 
 @import "bootstrap";
@@ -80,5 +81,14 @@ p {
     -ms-transform:scale(1.1);
     -o-transform:scale(1.1);
      transform:scale(1.1);
+}
+
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  height: 450px;
 }
 
