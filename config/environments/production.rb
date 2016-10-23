@@ -9,7 +9,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   config.assets.js_compressor = :uglifier
-  config.assets.compile = false
+  config.assets.compile = true
 
   config.log_level = :debug
 
@@ -30,4 +30,6 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
+
+  config.serve_static_assets = true
 end
