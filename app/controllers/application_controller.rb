@@ -51,5 +51,10 @@ class ApplicationController < ActionController::Base
                   "CAPS AD e CAPSi" => "CAPS AD e CAPSi",
                   "CAPSi" => "CAPSi",
                   "Outro" => "Outro" }
+
+    @icons = { "CAPS" => "red", 
+               "Unidade de Acolhimento" => "yellow", 
+               "Ambulatório AD" => "green",
+               "Comunidade Terapêutica" => "blue" }
   end
 end

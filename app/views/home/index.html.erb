@@ -24,7 +24,14 @@
     <% if @dispositivos %>
       <% @dispositivos.each do |dispositivo| %>
         <% if dispositivo.latitude and dispositivo.longitude %>
-          markers["<%= dispositivo.slug %>"] = L.marker([<%= dispositivo.latitude %>, <%= dispositivo.longitude %>])
+
+           <% if @icons[dispositivo.tipo] %>
+             var Icon = L.icon({iconUrl: '/assets/marker-icon-<%= @icons[dispositivo.tipo] %>.png'});
+          <% else %>
+             var Icon = L.icon({iconUrl: '/assets/marker-icon.png'});
+          <% end %>
+
+          markers["<%= dispositivo.slug %>"] = L.marker([<%= dispositivo.latitude %>, <%= dispositivo.longitude %>], {icon: Icon})
           markers["<%= dispositivo.slug %>"].bindPopup('<b><%= link_to dispositivo.nome, dispositivo_path(dispositivo) %><br/>(<%= "#{dispositivo.tipo} - #{dispositivo.subtipo}" %>)</b>');
           tipos["<%= dispositivo.tipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
           subtipos["<%= dispositivo.subtipo %>"].addLayer(markers["<%= dispositivo.slug %>"]);
