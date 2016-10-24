@@ -48,7 +48,6 @@ class ApplicationController < ActionController::Base
 
     @subtipos = { "CAPS AD" => "CAPS AD",
                   "CAPS Transtorno" => "CAPS Transtorno",
-                  "CAPS AD e CAPSi" => "CAPS AD e CAPSi",
                   "CAPSi" => "CAPSi",
                   "Outro" => "Outro" }
 

@@ -26,7 +26,7 @@
         <% if current_user %>
           <% if current_user.admin? %>
             <li class="nav-item">
-              <%= link_to t(:users), new_user_session, :class => "nav-link" %>
+              <%= link_to t(:users), users_url, :class => "nav-link" %>
             </li>
           <% end %>
           <li class="nav-item" id='login-logout'>
