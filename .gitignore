@@ -24,4 +24,4 @@
 
 /public/system/*
 /public/assets/*
-
+/config/initializers/proxy.rb
