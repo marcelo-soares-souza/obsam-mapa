@@ -2,12 +2,13 @@
 <script>
   $( document ).ready(function() {
 
-    var map = L.map('map').setView([-15.77835833463309, -47.88219451904297], 10);
+    var map = L.map('map', {zoomControl: false}).setView([-15.77835833463309, -47.88219451904297], 10);
     var markers = new Array();
     var tipos = new Array();
     var subtipos = new Array();
 
-    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Mapas OBSAM - Leaflet - OpenStreetMap', maxZoom: 18,}).addTo(map);
+    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Mapas <a href="http://nesp.unb.br/obsam/" alt="OBSAM" target="_blank">OBSAM</a> - OpenStreetMap', maxZoom: 18,}).addTo(map);
+    L.control.zoom({position:'topright'}).addTo(map);
 
     <% if @tipos %>
       <% @tipos.each do |tipo| %>
@@ -40,7 +41,7 @@
     <% end %>
 
 
-   layerTipoControl = L.control.layers().addTo(map);
+   layerTipoControl = L.control.layers(null, null, {position: 'topleft'}).addTo(map);
    // layerSubTipoControl = L.control.layers().addTo(map);
 
    <% if @tipos %>

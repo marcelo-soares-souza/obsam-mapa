@@ -21,12 +21,12 @@
       <a class="navbar-brand" href="/">Mapas OBSAM</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/dispositivos">Dispositivos</a>
+          <%= link_to 'Dispositivos', dispositivos_url, :class => "nav-link" %>
         </li>
         <% if current_user %>
           <% if current_user.admin? %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/"><%= t(:users) %></a>
+              <%= link_to t(:users), new_user_session, :class => "nav-link" %>
             </li>
           <% end %>
           <li class="nav-item" id='login-logout'>
