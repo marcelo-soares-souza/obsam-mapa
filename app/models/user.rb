@@ -4,8 +4,8 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :fullname, use: :slugged
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # :registerable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   validates :fullname, :presence => true
 end
