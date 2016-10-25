@@ -28,7 +28,6 @@
           <th>Nome</th>
           <th>Cidade</th>
           <th>UF</th>
-          <th>Política Pública</th>
           <th>Tipo</th>
           <% if user_signed_in? %> <th colspan="3"></th> <% end %>
         </tr>
@@ -37,10 +36,9 @@
       <tbody>
         <% @dispositivos.each do |dispositivo| %>
         <tr>
-          <td><%= link_to truncate(dispositivo.nome, length: 50), dispositivo_path(dispositivo) %></td>
+          <td><%= link_to truncate(dispositivo.nome, length: 64), dispositivo_path(dispositivo) %></td>
           <td><%= dispositivo.cidade %></td>
           <td><%= dispositivo.uf %></td>
-          <td><%= dispositivo.politica_publica %></td>
           <td><%= dispositivo.tipo %></td>
 
           <% if user_signed_in? %>
