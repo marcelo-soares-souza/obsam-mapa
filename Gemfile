@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'puma', '~> 3.0'
+gem 'puma', git: 'https://github.com/puma/puma.git'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -25,7 +25,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pg'
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '= 4.0.0.alpha5'
 gem 'devise'
 gem 'paperclip'
 gem 'gravatar-ultimate'
